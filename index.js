@@ -8,7 +8,10 @@ import path from "path";
 
 connectToDatabase();
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: "https://employee-frontend-pi.vercel.app/",
+  credentials : true
+}));
 app.use(express.json());
 app.use(express.static('public/Uploads'));
 app.use("/public", express.static(path.join(process.cwd(), "public")));
